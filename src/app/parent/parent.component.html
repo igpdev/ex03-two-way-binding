@@ -1,8 +1,8 @@
 <p>Two-way binding communication</p>
 
-<ol *ngFor="let user of users">
+<ul *ngFor="let user of users">
   <li>{{ user.first_name }}, {{ user.last_name }}, {{ user.email }}</li>
-</ol>
+</ul>
 
 Search for a username <input [(ngModel)]="userToSearch" /> <br />
 
