@@ -8,7 +8,10 @@ import { User } from '../user';
 })
 export class ParentComponent implements OnInit {
   users: User[];
+  user;
   serviceCalled: Boolean = false;
+  userToSearch: String;
+  userFound = false;
 
   constructor(private userService: UserService) {}
 
@@ -17,5 +20,16 @@ export class ParentComponent implements OnInit {
       this.users = data;
       this.serviceCalled = true;
     });
+  }
+
+  searchUserInfo() {
+    this.user = this.users.filter(
+      (user) =>
+        user.first_name.toLowerCase() === this.userToSearch.toLowerCase()
+    )[0];
+
+    if (this.user) {
+      this.userFound = true;
+    }
   }
 }

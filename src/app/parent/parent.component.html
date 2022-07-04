@@ -1,13 +1,16 @@
-<p>Display the users info</p>
-<!--
-  Inside the ol element, use the correct angular directive to 
-  iterate over the users array and display the following 3 properties separated by comma:
-
-  - first_name
-  - last_name
-  - email
--->
+<p>Two-way binding communication</p>
 
 <ol *ngFor="let user of users">
   <li>{{ user.first_name }}, {{ user.last_name }}, {{ user.email }}</li>
 </ol>
+
+Search for a username <input [(ngModel)]="userToSearch" /> <br />
+
+<p><strong>User entered:</strong> {{ userToSearch }}<br /></p>
+
+<button (click)="searchUserInfo()">Search user avatar</button>
+
+<div *ngIf="userFound">
+  <p>Displaying {{ user.first_name }} profile picture</p>
+  <img [src]="user.avatar" />
+</div>
